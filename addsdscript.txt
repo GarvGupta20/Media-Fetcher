@@ -1,0 +1,4 @@
+ "lint": "eslint src/**/*.jsx",
+  "format": "prettier --write src/**/*.jsx",
+  "format:lint": "npm run format && npm run lint",
+  "clear": "rimraf dist .parcel-cache" 
