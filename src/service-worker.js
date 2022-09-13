@@ -1,4 +1,6 @@
 /* eslint-disable no-restricted-globals */
+/* eslint-disable */
+//jshint esversion:9
 
 // This service worker can be customized!
 // See https://developers.google.com/web/tools/workbox/modules

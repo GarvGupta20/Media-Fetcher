@@ -1,5 +1,6 @@
 // This optional code is used to register a service worker.
 // register() is not called by default.
+//jshint esversion:9
 
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
@@ -9,6 +10,8 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
+
+/* eslint-disable */
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
