@@ -8,31 +8,46 @@ import {
   Link
 } from "react-router-dom";
 
-import About from "./pages/About.js";
+import Starred from "./pages/starred.js";
 
 import Home from "./pages/Home.js";
 
+import Show from "./pages/Show.js";
+
 
 import MainPageLayout from "./components/mainPageLayout.js";
+
+import {ThemeProvider} from "styled-components";
+
+
+
+const theme = {
+  mainColors: {
+    blue: '#2400ff',
+    gray: '#c6c6c6',
+    dark: '#353535',
+  }
+};
+
 
 
 function App() {
   return (
     <>
+    <ThemeProvider theme={theme}>
     <Router>
 
     {/* switch and route components to render the following pages */}
     <Switch>
     <Route exact path="/">
         <MainPageLayout />
+    </Route>    {/* the route components simply matches the path and render the componet inside it  */}
+    <Route exact path="/show/:id">
+        <Show />
     </Route>
-    <Route exact path="/home">    {/* the route components simply matches the path and render the componet inside it  */}
-        <MainPageLayout />
-        <Home />
-    </Route>
-    <Route exact path="/about">
-        <MainPageLayout />
-        <About />
+    <Route exact path="/Starred">
+
+        <Starred />
     </Route>
     <Route>
         <div>
@@ -43,7 +58,7 @@ function App() {
 
     </Router>
 
-
+    </ThemeProvider>
     </>
   );
 }

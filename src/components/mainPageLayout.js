@@ -7,15 +7,21 @@ import Navigation from "./Navigation.js";
 
 import Title from "./Title.js";
 
+import ShowGrid from "./show/Showgrid.js";
+
+import ActorGrid from "./actor/Actorgrid.js";
+
+import {RadioInputsWrapper,SearchButtonWrapper,SearchInput} from "../pages/Home.styled.js";
 
 
 
 
 const MainPageLayout=() => {
-   let title="box office";
-   let subtitle="are you looking for a movie";
+   let title="Box Office";
+   let subtitle="Are You Looking For A Movie";
 
    let m=false;
+
 
 //   fetch("https://api.tvmaze.com/singlesearch/shows?q=banshee").then((res) =>res.json()).then((data) => console.log(data));
 //above is the typical API call pattern used in this application
@@ -67,7 +73,7 @@ const onSearch=() => {
 
 
 
-console.log(radio);
+//console.log(radio);
 
 
 
@@ -76,7 +82,29 @@ const checkResult=() => {
 
 
    if(result && result.length>0) {
-      return result[0].show ? (
+      return (result[0].show ? <ShowGrid show={result} /> : <ActorGrid actor={result} /> );
+    }
+
+    if(result && result.length===0) {
+
+    return (
+     <div>
+
+         NO RESULT FOUND
+
+     </div>
+
+    );
+  }
+
+ }
+
+
+
+
+
+
+  {/*}    (
 
          <ul>
           {result.map((val) =>
@@ -89,22 +117,8 @@ const checkResult=() => {
                 <li key={val.person.id}>{val.person.name}</li>
               )}
              </ul>
-    )
+    )     */ }
 
-   }
-
-   if(result && result.length===0)
-
-   return (
-    <div>
-
-        NO RESULT FOUND
-
-    </div>
-
-   );
-
-}
 
 
 
@@ -114,13 +128,19 @@ const checkResult=() => {
     <div>
     <Title title={title} subtitle={subtitle} />
     <Navigation />
-    <input type="text" onChange={onChangeInput}  onKeyDown={onKeyChange} value={input}></input>
+    <SearchInput type="text" onChange={onChangeInput}  onKeyDown={onKeyChange} value={input}></SearchInput>
+    <SearchButtonWrapper>
     <button type="button" onClick={onSearch}>Search</button>
+    </SearchButtonWrapper>
     </div>
+    <RadioInputsWrapper>
+    <div>
     <label htmlFor="show-search">Shows</label>
     <input id="show-search" checked={radio=="shows" ? true : false}   type="radio"  onChange={onRadioChange} value="shows"></input>
     <label htmlFor="actor-search">actors</label>
     <input id="actor-search" checked={radio=="people" ? true : false} type="radio" onChange={onRadioChange} value="people"></input>
+    </div>
+    </RadioInputsWrapper>
     <div>
        {checkResult()}
     </div>

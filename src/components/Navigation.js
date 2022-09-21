@@ -5,29 +5,28 @@
 
 
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link,useLocation} from "react-router-dom";
+import {NavList,LinkStyled} from "./navs.styled.js";
 
 const a=[
-
-  {to:"/about",content:"Click to go on the About page"},
-  {to:"/home",content:"Click to go on the  Home page"}
+  {to:"/",content:"Home page"},
+  {to:"/starred",content:"Starred Page"}
 ];
 
 const Navigation=() => {
+  const location=useLocation();
   return (
 
     <>
-    <div>
-    <ul>
+    <NavList>
         {
            a.map((item,index) => {
-            return <li key={index}>
-             <Link to={item.to}>{item.content}</Link>
+            return <li key={index} >
+             <LinkStyled to={item.to} className={item.to === location.pathname ? "active" : ""}>{item.content}</LinkStyled>
              </li>
          })
         }
-    </ul>
-    </div>
+    </NavList>
     </>
 
   );
