@@ -39,13 +39,13 @@ function App() {
 
     {/* switch and route components to render the following pages */}
     <Switch>
-    <Route exact path="/">
+    <Route path="/">
         <MainPageLayout />
     </Route>    {/* the route components simply matches the path and render the componet inside it  */}
-    <Route exact path="/show/:id">
+    <Route path="/show/:id">
         <Show />
     </Route>
-    <Route exact path="/Starred">
+    <Route path="/Starred">
 
         <Starred />
     </Route>
