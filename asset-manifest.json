@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Media-Fetcher/static/css/main.b2586571.css",
+    "main.js": "/Media-Fetcher/static/js/main.eee00dc0.js",
+    "service-worker.js": "/Media-Fetcher/service-worker.js",
+    "index.html": "/Media-Fetcher/index.html",
+    "main.b2586571.css.map": "/Media-Fetcher/static/css/main.b2586571.css.map",
+    "main.eee00dc0.js.map": "/Media-Fetcher/static/js/main.eee00dc0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b2586571.css",
+    "static/js/main.eee00dc0.js"
+  ]
+}
